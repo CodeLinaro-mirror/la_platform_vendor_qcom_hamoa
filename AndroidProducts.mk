@@ -1,5 +1,5 @@
 PRODUCT_MAKEFILES := \
-   $(LOCAL_DIR)/pineapple.mk
+   $(LOCAL_DIR)/sun.mk
 
 COMMON_LUNCH_CHOICES := \
-        pineapple-userdebug
+        sun-userdebug

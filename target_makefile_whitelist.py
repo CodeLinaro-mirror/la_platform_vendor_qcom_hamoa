@@ -80,10 +80,10 @@ VENDOR_KERNEL_WHITELIST = {}
 
 VENDOR_FOREACH_WHITELIST = {
     "device/qcom/common/utils.mk",
-    "device/qcom/pineapple/pineapple.mk",
-    "device/qcom/wlan/pineapple/BoardConfigWlan.mk",
-    "device/qcom/wlan/pineapple/wlan.mk",
-    "vendor/qcom/opensource/audio-hal/primary-hal/configs/pineapple/pineapple.mk",
+    "device/qcom/sun/sun.mk",
+    "device/qcom/wlan/sun/BoardConfigWlan.mk",
+    "device/qcom/wlan/sun/wlan.mk",
+    "vendor/qcom/opensource/audio-hal/primary-hal/configs/sun/sun.mk",
     "vendor/qcom/proprietary/android-perf-noship/profiles.mk",
     "vendor/qcom/proprietary/android-perf/profiles.mk",
     "vendor/qcom/proprietary/android-power-noship/powermodule-vendor-product.mk",
@@ -97,7 +97,7 @@ VENDOR_MACRO_WHITELIST = {
     "device/qcom/sepolicy_vndr/SEPolicy.mk",
     "hardware/qcom/display/config/display-product.mk",
     "hardware/qcom/media/product.mk",
-    "vendor/qcom/opensource/audio-hal/primary-hal/configs/pineapple/pineapple.mk",
+    "vendor/qcom/opensource/audio-hal/primary-hal/configs/sun/sun.mk",
     "vendor/qcom/opensource/audio-kernel/audio_kernel_modules.mk",
     "vendor/qcom/opensource/audio-kernel/audio_kernel_product_board.mk",
     "vendor/qcom/opensource/bt-kernel/bt_kernel_vendor_board.mk",
@@ -162,7 +162,7 @@ VENDOR_OVERRIDE_WHITELIST = {
 }
 
 VENDOR_SOONG_WHITELIST = {
-    "device/qcom/pineapple/BoardConfig.mk",
+    "device/qcom/sun/BoardConfig.mk",
     "device/qcom/vendor-common/base.mk",
     "hardware/qcom/display/config/display-product.mk",
     "vendor/qcom/opensource/audio-hal/primary-hal/configs/audio_vendor_product.mk",
