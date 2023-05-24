@@ -158,6 +158,9 @@ BOARD_KERNEL_CMDLINE += qcom_geni_serial.con_enabled=0
 endif
 endif
 
+#Enabling Protected VM for AVF
+BOARD_BOOTCONFIG += androidboot.hypervisor.protected_vm.supported=true
+
 BOARD_KERNEL_BASE        := 0x00000000
 BOARD_KERNEL_PAGESIZE    := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
