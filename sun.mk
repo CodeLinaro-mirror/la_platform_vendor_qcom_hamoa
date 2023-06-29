@@ -511,12 +511,10 @@ ifeq ($(TARGET_USES_QMAA), true)
 ifneq ($(TARGET_USES_QMAA_OVERRIDE_ANDROID_CORE),true)
 PRODUCT_ENABLE_QESDK := false
 else
-# Disable QESDK temporarily for QESDK component creation
-PRODUCT_ENABLE_QESDK := false
+PRODUCT_ENABLE_QESDK := true
 endif
 else
-# Disable QESDK temporarily for QESDK component creation
-PRODUCT_ENABLE_QESDK := false
+PRODUCT_ENABLE_QESDK := true
 endif
 
 # Vendor property to enable advanced network scanning
