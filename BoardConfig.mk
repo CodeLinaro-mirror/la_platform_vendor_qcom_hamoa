@@ -164,6 +164,10 @@ BOARD_BOOTCONFIG += androidboot.hypervisor.protected_vm.supported=true
 BOARD_KERNEL_CMDLINE += $(file < device/qcom/$(TARGET_BOARD_PLATFORM)-kernel/extra_cmdline)
 BOARD_BOOTCONFIG += $(file < device/qcom/$(TARGET_BOARD_PLATFORM)-kernel/extra_bootconfig)
 
+ifneq ($(findstring kasan,$(file < device/qcom/$(TARGET_BOARD_PLATFORM)-kernel/build_opts.txt)),)
+BOARD_KERNEL_CMDLINE += panic_on_taint=0x0 kasan_multi_shot stack_depot_disable=off page_owner=on
+endif
+
 BOARD_KERNEL_BASE        := 0x00000000
 BOARD_KERNEL_PAGESIZE    := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
