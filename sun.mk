@@ -549,9 +549,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 # This is the End of target.mk file.
 # Now, Pickup other split product.mk files:
 ###################################################################################
-# TODO: Relocate the system product.mk files pickup into qssi lunch, once it is up.
-$(foreach sdefs, $(sort $(wildcard vendor/qcom/defs/product-defs/system/*.mk)), \
-    $(call inherit-product, $(sdefs)))
 $(foreach vdefs, $(sort $(wildcard vendor/qcom/defs/product-defs/vendor/*.mk)), \
     $(call inherit-product, $(vdefs)))
 ###################################################################################
