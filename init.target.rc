@@ -86,8 +86,8 @@ on fs
 
 on post-fs
     #Execute virtualization manager
-    enable vendor.qvirtservice
-    start  vendor.qvirtservice
+    enable vendor.qvirtservice_rs
+    start  vendor.qvirtservice_rs
 
 on late-fs
     wait_for_prop hwservicemanager.ready true
