@@ -170,6 +170,10 @@ PRODUCT_SHIPPING_API_LEVEL := 34
 TARGET_KERNEL_VERSION := 5.15
 TARGET_USES_NEW_ION := true
 
+# Skip VINTF checks for kernel configs.
+# Kernel team remove this flag after dependencies are merged. b/272479887.
+PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
+
 # Disable DLKM generation until build support is available
 TARGET_KERNEL_DLKM_DISABLE := true
 
