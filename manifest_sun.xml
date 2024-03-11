@@ -96,17 +96,6 @@ SPDX-License-Identifier: BSD-3-Clause-Clear
         </interface>
     </hal>
 
-    <!-- dpm QMI hal service -->
-    <hal format="hidl">
-        <name>com.qualcomm.qti.dpm.api</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IdpmQmi</name>
-            <instance>dpmQmiService</instance>
-        </interface>
-    </hal>
-
    <!-- IMS RTP Service -->
     <hal format="hidl">
         <name>vendor.qti.imsrtpservice</name>
@@ -117,7 +106,7 @@ SPDX-License-Identifier: BSD-3-Clause-Clear
             <instance>imsrtpservice</instance>
         </interface>
     </hal>
-   <!-- IMS UCE Service -->
+  <!-- IMS UCE Service -->
    <hal format="hidl">
        <name>com.qualcomm.qti.uceservice</name>
        <transport>hwbinder</transport>
@@ -156,16 +145,7 @@ SPDX-License-Identifier: BSD-3-Clause-Clear
          <name>IImsFactory</name>
          <instance>default</instance>
        </interface>
-   </hal>
-       <hal format="hidl">
-        <name>vendor.qti.data.factory</name>
-        <transport>hwbinder</transport>
-        <version>2.8</version>
-        <interface>
-            <name>IFactory</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
+    </hal> 
     <!-- Tether Offload -->
     <hal format="hidl">
       <name>android.hardware.tetheroffload.config</name>
@@ -185,45 +165,6 @@ SPDX-License-Identifier: BSD-3-Clause-Clear
           <name>IOffloadControl</name>
           <instance>default</instance>
       </interface>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.qti.hardware.data.iwlan</name>
-        <transport>hwbinder</transport>
-        <version>1.1</version>
-        <interface>
-            <name>IIWlan</name>
-            <instance>slot1</instance>
-            <instance>slot2</instance>
-        </interface>
-    </hal>
-    <!-- Data Link Latency -->
-    <hal format="hidl">
-        <name>vendor.qti.hardware.data.latency</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>ILinkLatency</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.qti.hardware.data.connection</name>
-        <transport>hwbinder</transport>
-        <version>1.1</version>
-        <interface>
-            <name>IDataConnection</name>
-            <instance>slot1</instance>
-            <instance>slot2</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.qti.hardware.cacert</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IService</name>
-            <instance>default</instance>
-        </interface>
     </hal>
     <!-- Factory HAL service -->
     <hal format="hidl">
@@ -390,26 +331,6 @@ SPDX-License-Identifier: BSD-3-Clause-Clear
         <interface>
             <name>IQccvndhal</name>
             <instance>qccvndhal</instance>
-        </interface>
-    </hal>
-     <!-- DpmService HAL service -->
-    <hal format="hidl">
-        <name>vendor.qti.hardware.dpmservice</name>
-        <transport>hwbinder</transport>
-        <version>1.1</version>
-        <interface>
-            <name>IDpmService</name>
-            <instance>DpmService</instance>
-        </interface>
-    </hal>
-    <!-- MwqemAdapter HAL service -->
-    <hal format="hidl">
-        <name>vendor.qti.hardware.mwqemadapter</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IMwqemAdapter</name>
-            <instance>MwqemAdapter</instance>
         </interface>
     </hal>
 </manifest>
