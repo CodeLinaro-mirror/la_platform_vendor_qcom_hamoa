@@ -541,6 +541,12 @@ PRODUCT_PACKAGES_DEBUG += bti_test_prebuilt \
                           dynamic_memcpy_prebuilt
 ##Armv9-Tests##
 
+# TODO(b/330696629) remove this once device can drop HIDL.
+# This adds hwservicemanager and the allocator service to the device.
+PRODUCT_PACKAGES += \
+    hwservicemanager \
+    android.hidl.allocator@1.0-service
+
 # Mediaserver 64 Bit enable
 PRODUCT_PROPERTY_OVERRIDES += \
      ro.mediaserver.64b.enable=true
