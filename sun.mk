@@ -41,6 +41,9 @@ BOARD_SHIPPING_API_LEVEL := 34
 #Align ELF segment of binaries to 64k
 PRODUCT_MAX_PAGE_SIZE_SUPPORTED := 65536
 
+#Enable AOSP to be page size agnostic
+PRODUCT_NO_BIONIC_PAGE_SIZE_MACRO := true
+
 # Set SoC manufacturer property
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.soc.manufacturer=QTI
