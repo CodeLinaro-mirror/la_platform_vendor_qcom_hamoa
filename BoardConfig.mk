@@ -22,16 +22,16 @@ TARGET_NO_KERNEL := false
 TARGET_SIGNONLY_BOOTLOADER := true
 
 ifeq ($(TARGET_NO_KERNEL), true)
-BOARD_PREBUILT_BOOTIMAGE := device/qcom/sun/boot.img
+BOARD_PREBUILT_BOOTIMAGE := device/qcom/canoe/boot.img
 BOOT_OS_VERSION = $(PLATFORM_VERSION_LAST_STABLE)
 BOOT_SECURITY_PATCH = $(PLATFORM_SECURITY_PATCH)
 endif
 
 BOARD_RAMDISK_USE_LZ4 := true
 
--include $(QCPATH)/common/sun/BoardConfigVendor.mk
+-include $(QCPATH)/common/canoe/BoardConfigVendor.mk
 
-SECTOOLS_SECURITY_PROFILE := $(QCPATH)/securemsm/security_profiles/sun_tz_security_profile.xml
+SECTOOLS_SECURITY_PROFILE := $(QCPATH)/securemsm/security_profiles/canoe_tz_security_profile.xml
 
 USE_OPENGL_RENDERER := true
 
@@ -74,9 +74,9 @@ ifeq ($(ENABLE_AB), true)
 TARGET_NO_RECOVERY := true
 # Defines for enabling A/B builds
 AB_OTA_UPDATER := true
-TARGET_RECOVERY_FSTAB := device/qcom/sun/recovery.fstab
+TARGET_RECOVERY_FSTAB := device/qcom/canoe/recovery.fstab
 else
-TARGET_RECOVERY_FSTAB := device/qcom/sun/recovery_non_AB.fstab
+TARGET_RECOVERY_FSTAB := device/qcom/canoe/recovery_non_AB.fstab
 BOARD_CACHEIMAGE_PARTITION_SIZE := 268435456
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 endif
@@ -252,10 +252,10 @@ ifeq ($(TARGET_USES_QMAA), true)
 ifneq ($(TARGET_USES_QMAA_OVERRIDE_WLAN), true)
 include device/qcom/wlan/default/BoardConfigWlan.mk
 else
-include device/qcom/wlan/sun/BoardConfigWlan.mk
+include device/qcom/wlan/canoe/BoardConfigWlan.mk
 endif
 else
-include device/qcom/wlan/sun/BoardConfigWlan.mk
+include device/qcom/wlan/canoe/BoardConfigWlan.mk
 endif
 endif
 

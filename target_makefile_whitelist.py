@@ -1,4 +1,4 @@
-# Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights reserved.
+# Copyright (c) 2023-2024 Qualcomm Innovation Center, Inc. All rights reserved.
 # SPDX-License-Identifier: BSD-3-Clause-Clear
 
 VENDOR_FAILED_FILEPATHS_WHITELIST = {
@@ -80,10 +80,10 @@ VENDOR_KERNEL_WHITELIST = {}
 
 VENDOR_FOREACH_WHITELIST = {
     "device/qcom/common/utils.mk",
-    "device/qcom/sun/sun.mk",
-    "device/qcom/wlan/sun/BoardConfigWlan.mk",
-    "device/qcom/wlan/sun/wlan.mk",
-    "vendor/qcom/opensource/audio-hal/primary-hal/configs/sun/sun.mk",
+    "device/qcom/canoe/canoe.mk",
+    "device/qcom/wlan/canoe/BoardConfigWlan.mk",
+    "device/qcom/wlan/canoe/wlan.mk",
+    "vendor/qcom/opensource/audio-hal/primary-hal/configs/canoe/canoe.mk",
     "vendor/qcom/proprietary/android-perf-noship/profiles.mk",
     "vendor/qcom/proprietary/android-perf/profiles.mk",
     "vendor/qcom/proprietary/android-power-noship/powermodule-vendor-product.mk",
@@ -97,7 +97,7 @@ VENDOR_MACRO_WHITELIST = {
     "device/qcom/sepolicy_vndr/SEPolicy.mk",
     "hardware/qcom/display/config/display-product.mk",
     "hardware/qcom/media/product.mk",
-    "vendor/qcom/opensource/audio-hal/primary-hal/configs/sun/sun.mk",
+    "vendor/qcom/opensource/audio-hal/primary-hal/configs/canoe/canoe.mk",
     "vendor/qcom/opensource/audio-kernel/audio_kernel_modules.mk",
     "vendor/qcom/opensource/audio-kernel/audio_kernel_product_board.mk",
     "vendor/qcom/opensource/bt-kernel/bt_kernel_vendor_board.mk",
@@ -162,7 +162,7 @@ VENDOR_OVERRIDE_WHITELIST = {
 }
 
 VENDOR_SOONG_WHITELIST = {
-    "device/qcom/sun/BoardConfig.mk",
+    "device/qcom/canoe/BoardConfig.mk",
     "device/qcom/vendor-common/base.mk",
     "hardware/qcom/display/config/display-product.mk",
     "vendor/qcom/opensource/audio-hal/primary-hal/configs/audio_vendor_product.mk",

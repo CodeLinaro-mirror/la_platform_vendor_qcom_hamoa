@@ -1,5 +1,5 @@
 PRODUCT_MAKEFILES := \
-   $(LOCAL_DIR)/sun.mk
+   $(LOCAL_DIR)/canoe.mk
 
 COMMON_LUNCH_CHOICES := \
-        sun-userdebug
+        canoe-userdebug
