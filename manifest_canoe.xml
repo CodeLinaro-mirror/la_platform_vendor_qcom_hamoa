@@ -49,15 +49,6 @@ SPDX-License-Identifier: BSD-3-Clause-Clear
        <version>1</version>
        <fqname>ISecureElement/eSE1</fqname>
     </hal>
-    <hal format="aidl">
-        <name>android.hardware.gatekeeper</name>
-        <version>1</version>
-        <interface>
-            <name>IGatekeeper</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-
     <!-- SPU service-->
     <hal format="aidl" optional="true">
         <name>vendor.qti.hardware.spu</name>
