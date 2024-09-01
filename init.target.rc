@@ -77,7 +77,6 @@ on early-fs
     start vold
 
 on fs
-    start hwservicemanager
     mount_all /vendor/etc/fstab.qcom --early
     chown root system /mnt/vendor/persist
     chmod 0771 /mnt/vendor/persist
@@ -90,7 +89,6 @@ on post-fs
     start  vendor.qvirtservice_rs
 
 on late-fs
-    wait_for_prop hwservicemanager.ready true
     #exec_start wait_for_keymaster
     mount_all /vendor/etc/fstab.qcom --late
 
