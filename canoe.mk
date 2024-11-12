@@ -48,6 +48,9 @@ PRODUCT_NO_BIONIC_PAGE_SIZE_MACRO := true
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.soc.manufacturer=QTI
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.board.family=canoe
+
 # For QSSI builds, we should skip building the system image. Instead we build the
 # "non-system" images (that we support).
 
