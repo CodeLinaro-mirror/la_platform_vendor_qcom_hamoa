@@ -1,4 +1,5 @@
 TARGET_BOARD_PLATFORM := canoe
+TARGET_BOARD_FAMILY := f-canoe
 TARGET_BOOTLOADER_BOARD_NAME := canoe
 
 BUILD_BROKEN_DUP_RULES := true
@@ -49,7 +50,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.soc.manufacturer=QTI
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.board.family=canoe
+    ro.vendor.board.family=f-canoe
 
 # For QSSI builds, we should skip building the system image. Instead we build the
 # "non-system" images (that we support).
