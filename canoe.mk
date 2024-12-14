@@ -561,6 +561,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
      ro.mediaserver.64b.enable=true
 
+# VM shutdown feature enablement
+PRODUCT_VENDOR_PROPERTIES += \
+     ro.vendor.vm.ssr.enable=false
+
 # Enable support for APEX updates
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
