@@ -159,7 +159,9 @@ endif
 endif
 
 #Enabling Protected VM for AVF
-BOARD_BOOTCONFIG += androidboot.hypervisor.protected_vm.supported=true
+BOARD_BOOTCONFIG += \
+    androidboot.hypervisor.protected_vm.supported=true \
+    androidboot.hypervisor.version=gunyah
 
 BOARD_KERNEL_CMDLINE += $(file < device/qcom/$(TARGET_BOARD_PLATFORM)-kernel/extra_cmdline)
 BOARD_BOOTCONFIG += $(file < device/qcom/$(TARGET_BOARD_PLATFORM)-kernel/extra_bootconfig)
