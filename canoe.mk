@@ -551,6 +551,10 @@ PRODUCT_PACKAGES_DEBUG += bti_test_prebuilt \
                           pac_test \
                           mte_tests \
                           dynamic_memcpy_prebuilt
+
+#Qaca unit test
+PRODUCT_PACKAGES_DEBUG += qaca_test
+
 ##Armv9-Tests##
 
 # TODO(b/330696629) remove this once device can drop HIDL.
