@@ -158,7 +158,9 @@ endif
 endif
 
 #Enabling Protected VM for AVF
-BOARD_BOOTCONFIG += androidboot.hypervisor.protected_vm.supported=true
+BOARD_BOOTCONFIG += \
+    androidboot.hypervisor.protected_vm.supported=true \
+    androidboot.hypervisor.version=gunyah
 
 #Enabling QSPA
 BOARD_BOOTCONFIG += androidboot.vendor.qspa=true
