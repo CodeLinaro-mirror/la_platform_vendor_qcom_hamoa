@@ -546,6 +546,8 @@ PRODUCT_PACKAGES += vendor.qti.qspa-service qspa-testclient
 
 PRODUCT_PACKAGES += qspa_vendor.rc
 
+PRODUCT_PACKAGES += qspa_application_packages.xml
+
 ##Armv9-Tests##
 PRODUCT_PACKAGES_DEBUG += bti_test_prebuilt \
                           pac_test \
