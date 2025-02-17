@@ -30,7 +30,7 @@ BOARD_RAMDISK_USE_LZ4 := true
 
 -include $(QCPATH)/common/canoe/BoardConfigVendor.mk
 
-SECTOOLS_SECURITY_PROFILE := $(QCPATH)/securemsm/security_profiles/canoe_security_profile.xml
+SECTOOLS_SECURITY_PROFILE := $(QCPATH)/securemsm/security_profiles/canoe_security_profile.xml $(QCPATH)/securemsm/security_profiles/alor_security_profile.xml
 
 USE_OPENGL_RENDERER := true
 
