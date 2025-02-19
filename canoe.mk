@@ -188,7 +188,7 @@ TARGET_KERNEL_VERSION := 5.15
 TARGET_USES_NEW_ION := true
 
 # Disable DLKM generation until build support is available
-TARGET_KERNEL_DLKM_DISABLE := true
+TARGET_KERNEL_DLKM_DISABLE := false
 
 # Tech specific flags
 TARGET_KERNEL_DLKM_AUDIO_OVERRIDE := true
