@@ -85,8 +85,6 @@ else
 BOARD_ABL_SIMPLE := true
 endif
 
-NEED_AIDL_NDK_PLATFORM_BACKEND := true
-
 # Set SYSTEMEXT_SEPARATE_PARTITION_ENABLE if was not already set (set earlier via build.sh).
 SYSTEMEXT_SEPARATE_PARTITION_ENABLE := true
 
