@@ -174,6 +174,8 @@ JAVA_IN_VENDOR_SOONG_WHITE_LIST :=\
 CuttlefishService\
 pasrservice\
 VendorPrivAppPermissionTest\
+MediaDrmAPITest\
+CastSignAPITest\
 
 JAVA_IN_VENDOR_MAKE_WHITE_LIST :=\
 AEye\
