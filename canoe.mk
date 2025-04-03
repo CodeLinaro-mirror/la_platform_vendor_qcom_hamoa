@@ -545,12 +545,6 @@ PRODUCT_PACKAGES += qspa_vendor.rc
 
 PRODUCT_PACKAGES += qspa_application_packages.xml
 
-##Armv9-Tests##
-PRODUCT_PACKAGES_DEBUG += bti_test_prebuilt \
-                          pac_test \
-                          mte_tests \
-                          dynamic_memcpy_prebuilt
-##Armv9-Tests##
 
 # TODO(b/330696629) remove this once device can drop HIDL.
 # This adds hwservicemanager and the allocator service to the device.
