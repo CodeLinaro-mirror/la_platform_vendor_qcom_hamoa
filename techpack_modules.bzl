@@ -20,6 +20,7 @@ def define_techpack_modules(target, msm_target, variant):
         "//vendor/qcom/opensource/securemsm-kernel:{}_qcedev-mod_dlkm".format(target),
         "//vendor/qcom/opensource/securemsm-kernel:{}_qrng_dlkm".format(target),
         "//vendor/qcom/opensource/securemsm-kernel:{}_smmu_proxy_dlkm".format(target),
+	"//vendor/qcom/opensource/securemsm-kernel:{}_tmecom-intf_dlkm".format(target),
         "//vendor/qcom/opensource/spu-kernel:{}_spcom".format(target),
         "//vendor/qcom/opensource/spu-kernel:{}_spss_utils".format(target),
         "//vendor/qcom/opensource/synx-kernel:{}_modules".format(target),
