@@ -95,3 +95,11 @@ include vendor/qcom/opensource/core-utils/build/AndroidBoardCommon.mk
 ifeq ($(strip $(BOARD_HAS_QCOM_WLAN)),true)
 include device/qcom/wlan/canoe/AndroidBoardWlan.mk
 endif
+
+$(warning his is to print target out vendor $(TARGET_OUT_VENDOR))
+$(info I am here)
+VENDOR_VM_SYSTEM_MOUNT_POINT := $(TARGET_OUT_VENDOR)/vm-system
+ALL_DEFAULT_INSTALLED_MODULES += $(VENDOR_VM_SYSTEM_MOUNT_POINT)
+$(VENDOR_VM_SYSTEM_MOUNT_POINT):
+	@echo "Creating $(VENDOR_VM_SYSTEM_MOUNT_POINT)"
+	@mkdir -p $(TARGET_OUT_VENDOR)/vm-system
