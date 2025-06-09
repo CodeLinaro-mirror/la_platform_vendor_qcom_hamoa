@@ -245,6 +245,10 @@ ifneq ("$(wildcard device/qcom/$(TARGET_BOARD_PLATFORM)-kernel/vendor_dlkm/syste
 PRODUCT_COPY_FILES += device/qcom/$(TARGET_BOARD_PLATFORM)-kernel/vendor_dlkm/system_dlkm.modules.blocklist:$(TARGET_COPY_OUT_VENDOR_DLKM)/lib/modules/system_dlkm.modules.blocklist
 endif
 
+ifneq ("$(wildcard device/qcom/$(TARGET_BOARD_PLATFORM)-kernel/kernel-gbl/gbl_aarch64.efi)", "")
+PRODUCT_COPY_FILES += device/qcom/$(TARGET_BOARD_PLATFORM)-kernel/kernel-gbl/gbl_aarch64.efi:$(PRODUCT_OUT)/gbl_aarch64.efi
+endif
+
 BOARD_HAVE_BLUETOOTH := false
 BOARD_HAVE_QCOM_FM := false
 
