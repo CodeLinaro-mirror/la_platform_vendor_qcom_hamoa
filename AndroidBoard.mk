@@ -72,6 +72,18 @@ endif
 LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)
 include $(BUILD_PREBUILT)
 
+include $(CLEAR_VARS)
+LOCAL_MODULE       := charger_fstab.qcom
+LOCAL_MODULE_TAGS  := optional
+LOCAL_MODULE_CLASS := ETC
+ifeq ($(ENABLE_AB), true)
+    LOCAL_SRC_FILES := charger_fstab.qcom
+else
+    LOCAL_SRC_FILES := charger_fstab_non_AB.qcom
+endif
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR_ETC)
+include $(BUILD_PREBUILT)
+
 include device/qcom/vendor-common/MergeConfig.mk
 
 #----------------------------------------------------------------------
