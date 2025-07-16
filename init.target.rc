@@ -84,7 +84,6 @@ on fs
     mkdir /mnt/vendor/persist/secnvm 0770 system system
     mkdir /mnt/vendor/persist/data 0700 system system
 
-
 on late-fs
     #exec_start wait_for_keymaster
     mount_all /vendor/etc/fstab.qcom --late
@@ -119,6 +118,9 @@ on property:vendor.display.lcd_density=560
 
 on property:vendor.display.lcd_density=640
    setprop dalvik.vm.heapgrowthlimit 512m
+
+on init && property:ro.boot.mode=charger
+    wait_for_prop vendor.all.modules.ready 1
 
 on charger
     start vendor.power_off_alarm
