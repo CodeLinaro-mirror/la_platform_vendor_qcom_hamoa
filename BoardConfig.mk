@@ -14,6 +14,8 @@ BUILD_BROKEN_USES_BUILD_HOST_EXECUTABLE := true
 BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_MISSING_REQUIRED_MODULES  := true
 
+BUILD_BROKEN_PLUGIN_VALIDATION := vndfuzztest
+
 BOARD_PERSISTIMAGE_PARTITION_SIZE := 33554432
 BOARD_PERSISTIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_USES_METADATA_PARTITION := true
@@ -24,11 +26,12 @@ SOONG_CONFIG_NAMESPACES += ufsbsg
 SOONG_CONFIG_ufsbsg += ufsframework
 SOONG_CONFIG_ufsbsg_ufsframework := bsg
 
--include $(sort $(wildcard vendor/qcom/defs/board-defs/system/*.mk))
--include $(sort $(wildcard vendor/qcom/defs/board-defs/vendor/*.mk))
-
 #Enable PD locater/notifier
 TARGET_PD_SERVICE_ENABLED := true
 
 #Enable peripheral manager
 TARGET_PER_MGR_ENABLED := true
+
+-include $(sort $(wildcard vendor/qcom/defs/board-defs/system/*.mk))
+-include $(sort $(wildcard vendor/qcom/defs/board-defs/vendor/*.mk))
+
