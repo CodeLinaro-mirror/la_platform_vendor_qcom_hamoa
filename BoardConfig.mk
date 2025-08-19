@@ -21,6 +21,7 @@ BOARD_PERSISTIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_USES_METADATA_PARTITION := true
 BOARD_METADATAIMAGE_FILE_SYSTEM_TYPE := f2fs
 BOARD_METADATAIMAGE_PARTITION_SIZE := 67108864
+BOARD_DTBOIMG_PARTITION_SIZE := 0x1600000
 SOONG_CONFIG_NAMESPACES += ufsbsg
 
 SOONG_CONFIG_ufsbsg += ufsframework
@@ -35,3 +36,5 @@ TARGET_PER_MGR_ENABLED := true
 -include $(sort $(wildcard vendor/qcom/defs/board-defs/system/*.mk))
 -include $(sort $(wildcard vendor/qcom/defs/board-defs/vendor/*.mk))
 
+#Enable dtb in boot image
+BOARD_INCLUDE_DTB_IN_BOOTIMG := true
