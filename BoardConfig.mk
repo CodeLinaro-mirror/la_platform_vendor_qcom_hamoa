@@ -46,5 +46,7 @@ endif
 -include $(sort $(wildcard vendor/qcom/defs/board-defs/system/*.mk))
 -include $(sort $(wildcard vendor/qcom/defs/board-defs/vendor/*.mk))
 
+include device/qcom/sepolicy_vndr/SEPolicy.mk
+
 #Enable dtb in boot image
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
