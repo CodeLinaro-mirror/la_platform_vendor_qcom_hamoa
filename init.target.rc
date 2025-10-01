@@ -47,7 +47,7 @@ on early-fs
     start vold
 
 on fs
-    mount_all /vendor/etc/fstab.qcom --early
+    #mount_all /vendor/etc/fstab.qcom --early
     chown root system /mnt/vendor/persist
     chmod 0771 /mnt/vendor/persist
     restorecon_recursive /mnt/vendor/persist
@@ -56,7 +56,7 @@ on fs
 
 on late-fs
     #exec_start wait_for_keymaster
-    mount_all /vendor/etc/fstab.qcom --late
+    #mount_all /vendor/etc/fstab.qcom --late
 
 on post-fs-data
     mkdir /vendor/data/tombstones 0771 system system
