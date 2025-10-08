@@ -114,6 +114,13 @@ else
     TARGET_DISABLE_PERF_OPTIMIZATIONS := false
 endif
 
+# QRTR related packages
+PRODUCT_PACKAGES += qrtr-lookup
+PRODUCT_PACKAGES += libqrtr
+
+# diag-router
+TARGET_HAS_DIAG_ROUTER := true
+
 $(foreach vdefs, $(sort $(wildcard vendor/qcom/defs/product-defs/system/*.mk)), \
     $(call inherit-product, $(vdefs)))
 
