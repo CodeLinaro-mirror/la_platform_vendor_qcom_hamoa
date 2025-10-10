@@ -25,6 +25,10 @@ TARGET_USES_AL := true
 
 TARGET_FWK_SUPPORTS_FULL_VALUEADDS := false
 
+# Set SoC manufacturer property
+PRODUCT_PROPERTY_OVERRIDES += \
+     ro.soc.manufacturer=QTI
+
 ifneq ($(TARGET_FWK_SUPPORTS_FULL_VALUEADDS), true)
  $(call soong_config_set, qti_fwk_valueadds, fwk_supports_full_valueadds, disabled)
 endif
