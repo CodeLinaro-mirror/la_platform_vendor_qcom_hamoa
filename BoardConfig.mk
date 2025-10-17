@@ -33,6 +33,16 @@ TARGET_PD_SERVICE_ENABLED := true
 #Enable peripheral manager
 TARGET_PER_MGR_ENABLED := true
 
+ifeq ($(TARGET_USES_QMAA), true)
+    ifneq ($(TARGET_USES_QMAA_OVERRIDE_WLAN), true)
+        include device/qcom/wlan/default/BoardConfigWlan.mk
+    else
+        include device/qcom/wlan/hamoa/BoardConfigWlan.mk
+    endif
+else
+    include device/qcom/wlan/hamoa/BoardConfigWlan.mk
+endif
+
 -include $(sort $(wildcard vendor/qcom/defs/board-defs/system/*.mk))
 -include $(sort $(wildcard vendor/qcom/defs/board-defs/vendor/*.mk))
 

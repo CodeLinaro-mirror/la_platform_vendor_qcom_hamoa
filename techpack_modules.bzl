@@ -18,7 +18,6 @@ def define_techpack_modules(target, msm_target, variant):
         "//vendor/qcom/opensource/securemsm-kernel:{}_tornado_mod".format(target),
         "//vendor/qcom/opensource/wlan/platform:{}_cnss2".format(target),
         "//vendor/qcom/opensource/wlan/platform:{}_cnss_plat_ipc_qmi_svc".format(target),
-        "//vendor/qcom/opensource/wlan/platform:{}_icnss2".format(target),
         "//vendor/qcom/opensource/wlan/platform:{}_cnss_nl".format(target),
         "//vendor/qcom/opensource/wlan/platform:{}_cnss_prealloc".format(target),
         "//vendor/qcom/opensource/wlan/platform:{}_cnss_utils".format(target),
