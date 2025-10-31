@@ -123,9 +123,21 @@ PRODUCT_PACKAGES += libqrtr
 # diag-router
 TARGET_HAS_DIAG_ROUTER := true
 
+#----------------------------------------------------------------------
+# wlan specific
+#----------------------------------------------------------------------
+ifeq ($(TARGET_USES_QMAA), true)
+    ifneq ($(TARGET_USES_QMAA_OVERRIDE_WLAN), true)
+        include device/qcom/wlan/default/wlan.mk
+    else
+        include device/qcom/wlan/hamoa/wlan.mk
+    endif
+else
+     include device/qcom/wlan/hamoa/wlan.mk
+endif
+
 $(foreach vdefs, $(sort $(wildcard vendor/qcom/defs/product-defs/system/*.mk)), \
     $(call inherit-product, $(vdefs)))
 
 $(foreach vdefs, $(sort $(wildcard vendor/qcom/defs/product-defs/vendor/*.mk)), \
     $(call inherit-product, $(vdefs)))
-
