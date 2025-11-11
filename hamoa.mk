@@ -16,20 +16,18 @@ PRODUCT_ENABLE_DUMPSTATE_SUPPORT := false
 
 BOARD_AVB_ENABLE := true
 
-$(call inherit-product, device/qcom/vendor-common/base.mk)
--include device/qcom/common/utils.mk
-$(call inherit-product-if-exists, $(QCPATH)/common/config/device-vendor-qssi.mk)
-
-DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
-    vendor/qcom/opensource/core-utils/vendor_framework_compatibility_matrix.xml \
+$(call inherit-product, device/qcom/hamoa/common64.mk)
 
 TARGET_USES_AL := true
 
 TARGET_FWK_SUPPORTS_FULL_VALUEADDS := false
 
+# Set SoC manufacturer property
+PRODUCT_PROPERTY_OVERRIDES += \
+     ro.soc.manufacturer=QTI
+
 ifneq ($(TARGET_FWK_SUPPORTS_FULL_VALUEADDS), true)
- $(call soong_config_set, qcrosvm, en_qcrosvm, disabled)
- $(call soong_config_set_bool, target_fwk_valueadds, fwk_supports_full_valueadds, false)
+ $(call soong_config_set, qti_fwk_valueadds, fwk_supports_full_valueadds, disabled)
 endif
 
 TARGET_USES_QMAA := true
@@ -116,6 +114,13 @@ ifeq ($(TARGET_USES_QMAA), true)
 else
     TARGET_DISABLE_PERF_OPTIMIZATIONS := false
 endif
+
+# QRTR related packages
+PRODUCT_PACKAGES += qrtr-lookup
+PRODUCT_PACKAGES += libqrtr
+
+# diag-router
+TARGET_HAS_DIAG_ROUTER := true
 
 $(foreach vdefs, $(sort $(wildcard vendor/qcom/defs/product-defs/system/*.mk)), \
     $(call inherit-product, $(vdefs)))
