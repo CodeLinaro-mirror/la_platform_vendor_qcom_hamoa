@@ -123,6 +123,9 @@ PRODUCT_PACKAGES += libqrtr
 # diag-router
 TARGET_HAS_DIAG_ROUTER := true
 
+# Set kernel version
+TARGET_KERNEL_VERSION := 6.12
+
 #----------------------------------------------------------------------
 # wlan specific
 #----------------------------------------------------------------------
