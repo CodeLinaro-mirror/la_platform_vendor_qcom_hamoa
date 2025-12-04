@@ -32,8 +32,7 @@ endif
 
 TARGET_USES_QMAA := true
 TARGET_USES_QMAA_RECOMMENDED_BOOT_CONFIG := false
-TARGET_USES_QMAA_OVERRIDE_RPMB := false
-TARGET_USES_QMAA_OVERRIDE_GPT  := false
+TARGET_USES_QMAA_OVERRIDE_QSEECOMD_LISTENERS := true
 TARGET_USES_QMAA_OVERRIDE_DISPLAY := false
 TARGET_USES_QMAA_OVERRIDE_AUDIO   := false
 TARGET_USES_QMAA_OVERRIDE_VIDEO   := false
@@ -43,7 +42,7 @@ TARGET_USES_QMAA_OVERRIDE_WFD     := false
 TARGET_USES_QMAA_OVERRIDE_GPS     := false
 TARGET_USES_QMAA_OVERRIDE_ANDROID_CORE := false
 TARGET_USES_QMAA_OVERRIDE_WLAN    := true
-TARGET_USES_QMAA_OVERRIDE_BLUETOOTH   := false
+TARGET_USES_QMAA_OVERRIDE_BLUETOOTH   := true
 TARGET_USES_QMAA_OVERRIDE_FM  := false
 TARGET_USES_QMAA_OVERRIDE_BLUETOOTH_AUDIO := false
 TARGET_USES_QMAA_OVERRIDE_CVP  := false
@@ -83,7 +82,7 @@ TARGET_KERNEL_DLKM_DISABLE := true
 
 # Tech specific flags
 TARGET_KERNEL_DLKM_AUDIO_OVERRIDE := false
-TARGET_KERNEL_DLKM_BT_OVERRIDE := false
+TARGET_KERNEL_DLKM_BT_OVERRIDE := true
 TARGET_KERNEL_DLKM_CAMERA_OVERRIDE := false
 TARGET_KERNEL_DLKM_NFC_OVERRIDE := false
 TARGET_KERNEL_DLKM_ESE_OVERRIDE := false
@@ -116,12 +115,19 @@ else
     TARGET_DISABLE_PERF_OPTIMIZATIONS := false
 endif
 
+ifneq ("$(wildcard device/qcom/$(TARGET_BOARD_PLATFORM)-kernel/vendor_dlkm/system_dlkm.modules.blocklist)", "")
+PRODUCT_COPY_FILES += device/qcom/$(TARGET_BOARD_PLATFORM)-kernel/vendor_dlkm/system_dlkm.modules.blocklist:$(TARGET_COPY_OUT_VENDOR_DLKM)/lib/modules/system_dlkm.modules.blocklist
+endif
+
 # QRTR related packages
 PRODUCT_PACKAGES += qrtr-lookup
 PRODUCT_PACKAGES += libqrtr
 
 # diag-router
 TARGET_HAS_DIAG_ROUTER := true
+
+# Set kernel version
+TARGET_KERNEL_VERSION := 6.12
 
 #----------------------------------------------------------------------
 # wlan specific
