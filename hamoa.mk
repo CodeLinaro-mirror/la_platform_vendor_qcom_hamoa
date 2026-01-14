@@ -127,6 +127,9 @@ PRODUCT_PACKAGES += libqrtr
 # diag-router
 TARGET_HAS_DIAG_ROUTER := true
 
+# RRO Configuration
+TARGET_USES_RRO := true
+
 # Set kernel version
 TARGET_KERNEL_VERSION := 6.12
 
