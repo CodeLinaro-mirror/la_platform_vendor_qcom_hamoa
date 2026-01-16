@@ -4,8 +4,6 @@
 #
 # TODO(b/124534788): Temporarily allow eng and debug LOCAL_MODULE_TAGS
 
--include $(QCPATH)/common/hamoa/BoardConfigVendor.mk
-
 BUILD_BROKEN_CLANG_PROPERTY := true
 BUILD_BROKEN_PREBUILT_ELF_FILES := true
 BUILD_BROKEN_USES_BUILD_HOST_SHARED_LIBRARY := true
