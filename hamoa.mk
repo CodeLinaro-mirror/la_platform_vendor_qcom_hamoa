@@ -16,6 +16,9 @@ PRODUCT_ENABLE_DUMPSTATE_SUPPORT := false
 
 BOARD_AVB_ENABLE := true
 
+# Disable Telephony for Compute targets
+TARGET_NO_TELEPHONY := true
+
 $(call inherit-product, device/qcom/hamoa/common64.mk)
 
 TARGET_USES_AL := true
