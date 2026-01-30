@@ -15,4 +15,3 @@ include $(BUILD_PREBUILT)
 # Configs common to AndroidBoard.mk for all targets
 #----------------------------------------------------------------------
 include vendor/qcom/opensource/core-utils/build/AndroidBoardCommon.mk
-

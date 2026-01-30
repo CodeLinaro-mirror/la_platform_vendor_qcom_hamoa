@@ -18,12 +18,14 @@ BOARD_AVB_ENABLE := true
 
 $(call inherit-product, device/qcom/hamoa/common64.mk)
 
-DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
-    vendor/qcom/opensource/core-utils/vendor_framework_compatibility_matrix.xml \
-
 TARGET_USES_AL := true
 
 TARGET_FWK_SUPPORTS_FULL_VALUEADDS := false
+BUILD_BROKEN_SRC_DIR_IS_WRITABLE := true
+
+# Set SoC manufacturer property
+PRODUCT_PROPERTY_OVERRIDES += \
+     ro.soc.manufacturer=QTI
 
 ifneq ($(TARGET_FWK_SUPPORTS_FULL_VALUEADDS), true)
  $(call soong_config_set, qti_fwk_valueadds, fwk_supports_full_valueadds, disabled)
@@ -31,8 +33,7 @@ endif
 
 TARGET_USES_QMAA := true
 TARGET_USES_QMAA_RECOMMENDED_BOOT_CONFIG := false
-TARGET_USES_QMAA_OVERRIDE_RPMB := false
-TARGET_USES_QMAA_OVERRIDE_GPT  := false
+TARGET_USES_QMAA_OVERRIDE_QSEECOMD_LISTENERS := false
 TARGET_USES_QMAA_OVERRIDE_DISPLAY := false
 TARGET_USES_QMAA_OVERRIDE_AUDIO   := false
 TARGET_USES_QMAA_OVERRIDE_VIDEO   := false
@@ -67,7 +68,8 @@ TARGET_USES_QMAA_OVERRIDE_SECUREMSM_TESTS := false
 TARGET_USES_QMAA_OVERRIDE_SMCINVOKE := false
 TARGET_USES_QMAA_OVERRIDE_SOTER := false
 TARGET_USES_QMAA_OVERRIDE_REMOTE_EFS := false
-TARGET_USES_QMAA_OVERRIDE_USB := false+TARGET_USES_QMAA_OVERRIDE_DPM := false
+TARGET_USES_QMAA_OVERRIDE_USB := false
+TARGET_USES_QMAA_OVERRIDE_DPM := false
 TARGET_USES_QMAA_OVERRIDE_FASTRPC := false
 TARGET_USES_QMAA_OVERRIDE_SPU := false
 TARGET_USES_QMAA_OVERRIDE_UWB := false
@@ -114,9 +116,35 @@ else
     TARGET_DISABLE_PERF_OPTIMIZATIONS := false
 endif
 
+ifneq ("$(wildcard device/qcom/$(TARGET_BOARD_PLATFORM)-kernel/vendor_dlkm/system_dlkm.modules.blocklist)", "")
+PRODUCT_COPY_FILES += device/qcom/$(TARGET_BOARD_PLATFORM)-kernel/vendor_dlkm/system_dlkm.modules.blocklist:$(TARGET_COPY_OUT_VENDOR_DLKM)/lib/modules/system_dlkm.modules.blocklist
+endif
+
+# QRTR related packages
+PRODUCT_PACKAGES += qrtr-lookup
+PRODUCT_PACKAGES += libqrtr
+
+# diag-router
+TARGET_HAS_DIAG_ROUTER := true
+
+# Set kernel version
+TARGET_KERNEL_VERSION := 6.12
+
+#----------------------------------------------------------------------
+# wlan specific
+#----------------------------------------------------------------------
+ifeq ($(TARGET_USES_QMAA), true)
+    ifneq ($(TARGET_USES_QMAA_OVERRIDE_WLAN), true)
+        include device/qcom/wlan/default/wlan.mk
+    else
+        include device/qcom/wlan/hamoa/wlan.mk
+    endif
+else
+     include device/qcom/wlan/hamoa/wlan.mk
+endif
+
 $(foreach vdefs, $(sort $(wildcard vendor/qcom/defs/product-defs/system/*.mk)), \
     $(call inherit-product, $(vdefs)))
 
 $(foreach vdefs, $(sort $(wildcard vendor/qcom/defs/product-defs/vendor/*.mk)), \
     $(call inherit-product, $(vdefs)))
-

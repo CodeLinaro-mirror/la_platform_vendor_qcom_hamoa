@@ -2,7 +2,6 @@ load("//build/bazel_common_rules/dist:dist.bzl", "copy_to_dist_dir")
 
 def define_techpack_modules(target, msm_target, variant):
     techpack_targets = [
-
     ]
 
     copy_to_dist_dir(
