@@ -120,6 +120,11 @@ else
     TARGET_DISABLE_PERF_OPTIMIZATIONS := false
 endif
 
+ifneq ($(strip $(TARGET_BUILD_VARIANT)),user)
+PRODUCT_COPY_FILES += \
+    device/qcom/hamoa/init.qcom.testscripts.sh:$(TARGET_COPY_OUT_PRODUCT)/etc/init.qcom.testscripts.sh
+endif
+
 ifneq ("$(wildcard device/qcom/$(TARGET_BOARD_PLATFORM)-kernel/vendor_dlkm/system_dlkm.modules.blocklist)", "")
 PRODUCT_COPY_FILES += device/qcom/$(TARGET_BOARD_PLATFORM)-kernel/vendor_dlkm/system_dlkm.modules.blocklist:$(TARGET_COPY_OUT_VENDOR_DLKM)/lib/modules/system_dlkm.modules.blocklist
 endif
