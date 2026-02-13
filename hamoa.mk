@@ -21,6 +21,7 @@ $(call inherit-product, device/qcom/hamoa/common64.mk)
 TARGET_USES_AL := true
 
 TARGET_FWK_SUPPORTS_FULL_VALUEADDS := false
+BUILD_BROKEN_SRC_DIR_IS_WRITABLE := true
 
 # Set SoC manufacturer property
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -32,8 +33,7 @@ endif
 
 TARGET_USES_QMAA := true
 TARGET_USES_QMAA_RECOMMENDED_BOOT_CONFIG := false
-TARGET_USES_QMAA_OVERRIDE_RPMB := false
-TARGET_USES_QMAA_OVERRIDE_GPT  := false
+TARGET_USES_QMAA_OVERRIDE_QSEECOMD_LISTENERS := false
 TARGET_USES_QMAA_OVERRIDE_DISPLAY := false
 TARGET_USES_QMAA_OVERRIDE_AUDIO   := false
 TARGET_USES_QMAA_OVERRIDE_VIDEO   := false
@@ -42,7 +42,7 @@ TARGET_USES_QMAA_OVERRIDE_GFX     := false
 TARGET_USES_QMAA_OVERRIDE_WFD     := false
 TARGET_USES_QMAA_OVERRIDE_GPS     := false
 TARGET_USES_QMAA_OVERRIDE_ANDROID_CORE := false
-TARGET_USES_QMAA_OVERRIDE_WLAN    := true
+TARGET_USES_QMAA_OVERRIDE_WLAN    := false
 TARGET_USES_QMAA_OVERRIDE_BLUETOOTH   := false
 TARGET_USES_QMAA_OVERRIDE_FM  := false
 TARGET_USES_QMAA_OVERRIDE_BLUETOOTH_AUDIO := false
@@ -95,7 +95,7 @@ TARGET_KERNEL_DLKM_SECUREMSM_QTEE_OVERRIDE := false
 TARGET_KERNEL_DLKM_LIMITS_OVERRIDE := false
 TARGET_KERNEL_DLKM_TOUCH_OVERRIDE := false
 TARGET_KERNEL_DLKM_VIDEO_OVERRIDE := false
-TARGET_KERNEL_DLKM_WLAN_OVERRIDE := true
+TARGET_KERNEL_DLKM_WLAN_OVERRIDE := false
 TARGET_KERNEL_DLKM_MMRM_OVERRIDE := false
 TARGET_KERNEL_DLKM_DATARMNET_OVERRIDE := false
 TARGET_KERNEL_DLKM_DATARMNETEXT_OVERRIDE := false
@@ -116,12 +116,19 @@ else
     TARGET_DISABLE_PERF_OPTIMIZATIONS := false
 endif
 
+ifneq ("$(wildcard device/qcom/$(TARGET_BOARD_PLATFORM)-kernel/vendor_dlkm/system_dlkm.modules.blocklist)", "")
+PRODUCT_COPY_FILES += device/qcom/$(TARGET_BOARD_PLATFORM)-kernel/vendor_dlkm/system_dlkm.modules.blocklist:$(TARGET_COPY_OUT_VENDOR_DLKM)/lib/modules/system_dlkm.modules.blocklist
+endif
+
 # QRTR related packages
 PRODUCT_PACKAGES += qrtr-lookup
 PRODUCT_PACKAGES += libqrtr
 
 # diag-router
 TARGET_HAS_DIAG_ROUTER := true
+
+# Set kernel version
+TARGET_KERNEL_VERSION := 6.12
 
 #----------------------------------------------------------------------
 # wlan specific
