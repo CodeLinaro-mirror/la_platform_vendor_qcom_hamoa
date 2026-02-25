@@ -31,6 +31,17 @@ TARGET_PD_SERVICE_ENABLED := true
 #Enable peripheral manager
 TARGET_PER_MGR_ENABLED := true
 
+TARGET_USES_ION := true
+DMA_BUF2_ENABLE := true
+
+-include $(sort $(wildcard vendor/qcom/defs/board-defs/system/*.mk))
+-include $(sort $(wildcard vendor/qcom/defs/board-defs/vendor/*.mk))
+
+include device/qcom/sepolicy_vndr/SEPolicy.mk
+
+#Enable dtb in boot image
+BOARD_INCLUDE_DTB_IN_BOOTIMG := true
+
 ifeq ($(TARGET_USES_QMAA), true)
     ifneq ($(TARGET_USES_QMAA_OVERRIDE_WLAN), true)
         include device/qcom/wlan/default/BoardConfigWlan.mk
