@@ -30,7 +30,6 @@ def define_techpack_modules(target, msm_target, variant):
         "//vendor/qcom/opensource/wlan/qcacld-3.0:{}_qca_cld_kiwi-v2".format(target),
         "//vendor/qcom/opensource/bt-kernel:{}_btpower".format(target),
         "//vendor/qcom/opensource/bt-kernel:{}_radio-i2c-rtc6226-qca".format(target),
-	"//vendor/qcom/proprietary/tools/msm_bus:{}_msm_bus_module".format(target),
     ]
 
     copy_to_dist_dir(
