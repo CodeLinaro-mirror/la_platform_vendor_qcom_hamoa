@@ -31,6 +31,9 @@ TARGET_PD_SERVICE_ENABLED := true
 #Enable peripheral manager
 TARGET_PER_MGR_ENABLED := true
 
+#Disable qcom system daemon
+TARGET_QCOM_SYSD_DISABLED := true
+
 TARGET_USES_ION := true
 DMA_BUF2_ENABLE := true
 

@@ -16,6 +16,9 @@ PRODUCT_ENABLE_DUMPSTATE_SUPPORT := false
 
 BOARD_AVB_ENABLE := true
 
+# Disable Telephony for Compute targets
+TARGET_NO_TELEPHONY := true
+
 $(call inherit-product, device/qcom/hamoa/common64.mk)
 
 TARGET_USES_AL := true
@@ -35,7 +38,7 @@ TARGET_USES_QMAA := true
 TARGET_USES_QMAA_RECOMMENDED_BOOT_CONFIG := false
 TARGET_USES_QMAA_OVERRIDE_QSEECOMD_LISTENERS := false
 TARGET_USES_QMAA_OVERRIDE_DISPLAY := false
-TARGET_USES_QMAA_OVERRIDE_AUDIO   := false
+TARGET_USES_QMAA_OVERRIDE_AUDIO   := true
 TARGET_USES_QMAA_OVERRIDE_VIDEO   := false
 TARGET_USES_QMAA_OVERRIDE_CAMERA  := false
 TARGET_USES_QMAA_OVERRIDE_GFX     := false
@@ -77,12 +80,13 @@ TARGET_USES_QMAA_OVERRIDE_SST_CLIENTS := false
 TARGET_USES_QMAA_OVERRIDE_SECURITY_TESTS := false
 TARGET_USES_QMAA_OVERRIDE_TIME_SERVICES := false
 TARGET_USES_QMAA_OVERRIDE_VIBRATOR:= false
+TARGET_USES_QMAA_OVERRIDE_TFTP := true
 
 # Disable DLKM generation until build support is available
 TARGET_KERNEL_DLKM_DISABLE := true
 
 # Tech specific flags
-TARGET_KERNEL_DLKM_AUDIO_OVERRIDE := false
+TARGET_KERNEL_DLKM_AUDIO_OVERRIDE := true
 TARGET_KERNEL_DLKM_BT_OVERRIDE := false
 TARGET_KERNEL_DLKM_CAMERA_OVERRIDE := false
 TARGET_KERNEL_DLKM_NFC_OVERRIDE := false
@@ -105,6 +109,7 @@ TARGET_KERNEL_DLKM_FASTRPC_OVERRIDE := false
 TARGET_KERNEL_DLKM_EVA_OVERRIDE := false
 TARGET_KERNEL_DLKM_SPU_OVERRIDE := false
 TARGET_KERNEL_DLKM_FINGERPRINT_OVERRIDE := false
+TARGET_KERNEL_DLKM_SAT_MODULE_OVERRIDE := true
 
 ifeq ($(TARGET_USES_QMAA), true)
     ifneq ($(TARGET_USES_QMAA_OVERRIDE_PERF), true)
@@ -114,6 +119,11 @@ ifeq ($(TARGET_USES_QMAA), true)
     endif
 else
     TARGET_DISABLE_PERF_OPTIMIZATIONS := false
+endif
+
+ifneq ($(strip $(TARGET_BUILD_VARIANT)),user)
+PRODUCT_COPY_FILES += \
+    device/qcom/hamoa/init.qcom.testscripts.sh:$(TARGET_COPY_OUT_PRODUCT)/etc/init.qcom.testscripts.sh
 endif
 
 ifneq ("$(wildcard device/qcom/$(TARGET_BOARD_PLATFORM)-kernel/vendor_dlkm/system_dlkm.modules.blocklist)", "")
