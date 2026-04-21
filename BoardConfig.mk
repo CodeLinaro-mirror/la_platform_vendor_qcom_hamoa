@@ -25,6 +25,9 @@ SOONG_CONFIG_NAMESPACES += ufsbsg
 SOONG_CONFIG_ufsbsg += ufsframework
 SOONG_CONFIG_ufsbsg_ufsframework := bsg
 
+#Use remoteproc path
+TARGET_USES_REMOTEPROC := true
+
 #Enable PD locater/notifier
 TARGET_PD_SERVICE_ENABLED := true
 
