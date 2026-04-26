@@ -4,6 +4,8 @@
 #
 # TODO(b/124534788): Temporarily allow eng and debug LOCAL_MODULE_TAGS
 
+-include $(QCPATH)/common/hamoa/BoardConfigVendor.mk
+
 BUILD_BROKEN_CLANG_PROPERTY := true
 BUILD_BROKEN_PREBUILT_ELF_FILES := true
 BUILD_BROKEN_USES_BUILD_HOST_SHARED_LIBRARY := true
@@ -37,9 +39,6 @@ TARGET_PER_MGR_ENABLED := true
 #Disable qcom system daemon
 TARGET_QCOM_SYSD_DISABLED := true
 
-TARGET_USES_ION := true
-DMA_BUF2_ENABLE := true
-
 -include $(sort $(wildcard vendor/qcom/defs/board-defs/system/*.mk))
 -include $(sort $(wildcard vendor/qcom/defs/board-defs/vendor/*.mk))
 
@@ -57,11 +56,3 @@ ifeq ($(TARGET_USES_QMAA), true)
 else
     include device/qcom/wlan/hamoa/BoardConfigWlan.mk
 endif
-
--include $(sort $(wildcard vendor/qcom/defs/board-defs/system/*.mk))
--include $(sort $(wildcard vendor/qcom/defs/board-defs/vendor/*.mk))
-
-include device/qcom/sepolicy_vndr/SEPolicy.mk
-
-#Enable dtb in boot image
-BOARD_INCLUDE_DTB_IN_BOOTIMG := true
