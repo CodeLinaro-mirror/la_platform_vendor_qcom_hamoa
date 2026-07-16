@@ -2,6 +2,7 @@ load("//build/bazel_common_rules/dist:dist.bzl", "copy_to_dist_dir")
 
 def define_techpack_modules(target, msm_target, variant):
     techpack_targets = [
+        "//vendor/qcom/opensource/audio-kernel:{}_modules".format(target),
 	"//vendor/qcom/opensource/dsp-kernel:{}_frpc-adsprpc".format(target),
         "//vendor/qcom/opensource/securemsm-kernel:{}_smcinvoke_dlkm".format(target),
         "//vendor/qcom/opensource/securemsm-kernel:{}_qcrypto-msm_dlkm".format(target),
@@ -19,6 +20,7 @@ def define_techpack_modules(target, msm_target, variant):
         "//vendor/qcom/opensource/securemsm-kernel:{}_tornado_mod".format(target),
         "//vendor/qcom/opensource/data-kernel/drivers/smem-mailbox:{}_smem_mailbox".format(target),
         "//vendor/qcom/opensource/graphics-kernel:{}_msm_kgsl".format(target),
+        "//vendor/qcom/opensource/mm-drivers/msm_ext_display:{}_msm_ext_display".format(target),
 	"//vendor/qcom/opensource/display-drivers:{}_msm_drm".format(target),
         "//vendor/qcom/opensource/video-driver:{}_video_modules".format(target),
         "//vendor/qcom/opensource/wlan/platform:{}_cnss2".format(target),
@@ -30,7 +32,7 @@ def define_techpack_modules(target, msm_target, variant):
         "//vendor/qcom/opensource/wlan/qcacld-3.0:{}_qca_cld_kiwi-v2".format(target),
         "//vendor/qcom/opensource/bt-kernel:{}_btpower".format(target),
         "//vendor/qcom/opensource/bt-kernel:{}_radio-i2c-rtc6226-qca".format(target),
-	"//vendor/qcom/proprietary/tools/msm_bus:{}_msm_bus_module".format(target),
+	"//vendor/qcom/opensource/bt-kernel:{}_bt_fm_slim".format(target),
     ]
 
     copy_to_dist_dir(
